@@ -1,0 +1,94 @@
+.welcome-content {
+  --background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.logo-section {
+  text-align: center;
+  color: white;
+
+  .icon-pulse {
+    font-size: 80px;
+    color: #f97316;
+    margin-bottom: 20px;
+    animation: pulse 2s infinite;
+    display: flex;
+    justify-content: center;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 0;
+    letter-spacing: -1px;
+    background: linear-gradient(to right, #fff, #94a3b8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  p {
+    color: #94a3b8;
+    margin-top: 10px;
+    font-size: 1.1rem;
+  }
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 30px;
+  width: 100%;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.custom-input {
+  --background: rgba(255, 255, 255, 0.03);
+  --color: white;
+  --placeholder-color: #64748b;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  ion-label {
+    color: #94a3b8 !important;
+    font-weight: 600;
+    margin-bottom: 8px !important;
+  }
+}
+
+.connect-button {
+  --background: linear-gradient(90deg, #f97316 0%, #ea580c 100%);
+  --background-activated: #c2410c;
+  --border-radius: 12px;
+  --box-shadow: 0 10px 15px -3px rgba(234, 88, 12, 0.3);
+  height: 56px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-top: 10px;
+}
+
+.footer-info {
+  color: #475569;
+  font-size: 0.8rem;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 1; }
+}

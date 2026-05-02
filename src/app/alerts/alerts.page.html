@@ -1,0 +1,65 @@
+<ion-content [fullscreen]="true" class="dashboard-content">
+  <div class="glass-container">
+    <header class="dashboard-header">
+      <div class="header-top">
+        <ion-button fill="clear" color="light" (click)="goBack()">
+          <ion-icon slot="icon-only" name="chevron-back-outline"></ion-icon>
+        </ion-button>
+        <h1>Monitoramento</h1>
+        <ion-button fill="clear" color="danger" (click)="disconnect()">
+          Sair
+        </ion-button>
+      </div>
+      
+      <!-- Banner de Aviso -->
+      <div class="background-warning">
+        <ion-icon name="information-circle-outline"></ion-icon>
+        <p>Mantenha o app em segundo plano para receber alertas.</p>
+      </div>
+
+      <div class="status-badge" [class.connected]="status.includes('Conectado')">
+        {{ status }}
+      </div>
+      <p class="device-info">Dispositivo: <strong>{{ deviceId }}</strong></p>
+    </header>
+
+    <div class="alerts-section">
+      <div class="section-header">
+        <h2>Histórico de Alertas</h2>
+        <ion-button fill="clear" size="small" color="medium" (click)="clearAlerts()" *ngIf="alerts.length > 0">
+          Limpar
+        </ion-button>
+      </div>
+
+      <!-- Empty State -->
+      <div class="empty-state" *ngIf="alerts.length === 0">
+        <ion-icon name="shield-checkmark-outline"></ion-icon>
+        <p>Nenhuma queda detectada</p>
+        <span>Tudo sob controle no momento</span>
+      </div>
+
+      <!-- Alerts List -->
+      <div class="alerts-list">
+        <div class="alert-card" *ngFor="let alert of alerts" [class]="alert.urgencyLevel.toLowerCase()">
+          <div class="alert-icon">
+            <ion-icon [name]="alert.urgencyLevel === 'CRITICAL' ? 'alert-circle' : 'warning'"></ion-icon>
+          </div>
+          <div class="alert-info">
+            <div class="alert-title">{{ alert.message }}</div>
+            <div class="alert-meta">
+              <span><ion-icon name="time-outline"></ion-icon> {{ alert.timestamp }}</span>
+              <span><ion-icon name="battery-dead-outline"></ion-icon> {{ alert.currentBattery }}%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-actions">
+    <ion-button expand="block" color="danger" fill="outline" class="disconnect-btn" (click)="disconnect()">
+      <ion-icon slot="start" name="power-outline"></ion-icon>
+      Desconectar Pulseira
+    </ion-button>
+  </div>
+</ion-content>

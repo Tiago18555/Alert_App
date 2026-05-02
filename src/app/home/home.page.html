@@ -1,0 +1,38 @@
+<ion-content [fullscreen]="true" class="ion-padding welcome-content">
+  <div class="welcome-container">
+    <div class="logo-section">
+      <div class="icon-pulse">
+        <ion-icon name="shield-checkmark-outline"></ion-icon>
+      </div>
+      <h1>Fall Alert</h1>
+      <p>Monitoramento de Segurança em Tempo Real</p>
+    </div>
+
+    <div class="input-section glass-card">
+      <ion-item lines="none" class="custom-input">
+        <ion-label position="stacked">ID da Pulseira</ion-label>
+        <ion-input 
+          [(ngModel)]="deviceId" 
+          placeholder="Ex: BANDS_001"
+          type="text"
+          maxlength="100"
+          class="id-input"
+        ></ion-input>
+      </ion-item>
+
+      <ion-button 
+        expand="block" 
+        (click)="connect()" 
+        class="connect-button"
+        [disabled]="!deviceId.trim()"
+      >
+        Conectar Agora
+        <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
+      </ion-button>
+    </div>
+
+    <div class="footer-info">
+      <p>&copy; 2026 Fall Alert System</p>
+    </div>
+  </div>
+</ion-content>
